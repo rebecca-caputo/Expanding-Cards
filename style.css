@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {                              /* universal selector */
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;           /* take up entire height of the view point (browser) */
+    overflow: hidden;
+    margin: 0;
+}
+
+.container {
+
+    display: flex;
+    width: 90vw;
+
+}
+
+.panel {
+    background-size: auto 100%;        /* sets panel classes to show 100% of the images */
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;                      /* sets height to 80% of the viewport */
+    border-radius: 50px;               /* rounds images */
+    color: #fff;
+    cursor: pointer;
+    flex: 0.5;                         /* sets width of the images for the panel classes */
+    margin: 10px;
+    position: relative;
+    transition: flex 0.7s ease-in;       /* transition has a 0.7s duration with an ease-in effect */   
+
+}
+
+.panel h3 {                                /* h3 elements inside the panel divs */
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0;
+}
+
+.panel.active {                        /* if the panel div has an active class, change flex to 5  */
+    flex: 5;
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {                 /* media query - any styles put in here will only take effect if the screen is under 480 pixels */
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),              /* removes the fourth and fifth panels for screens under 480px */
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+
+}
